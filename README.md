@@ -58,18 +58,16 @@ $ ./scripts/docker_build_ml.sh tensorflow # build only l4t-tensorflow
 Note that the TensorFlow and PyTorch pip wheel installers for aarch64 are automatically downloaded in the Dockerfiles from the [Jetson Zoo](https://elinux.org/Jetson_Zoo).
 
 ### ROS Containers
-
-To build the ROS containers, use [`scripts/docker_build_ros.sh`](scripts/docker_build_ros.sh) with the name of the ROS distro to build:
-
-``` bash
-$ ./scripts/docker_build_ros.sh all       # build all: melodic, noetic, eloquent, foxy
-$ ./scripts/docker_build_ros.sh melodic   # build only melodic
-$ ./scripts/docker_build_ros.sh noetic    # build only noetic
-$ ./scripts/docker_build_ros.sh eloquent  # build only eloquent
-$ ./scripts/docker_build_ros.sh foxy      # build only foxy
+To build the ROS containers, use scripts/docker_build_ros.sh with the --distro option to specify the name of the ROS distro to build:
 ```
-
-Note that ROS Noetic and ROS2 Foxy are built from source for Ubuntu 18.04, while ROS Melodic and ROS2 Eloquent are installed from Debian packages into the containers.
+./scripts/docker_build_ros.sh --distro all       # build all of the below (default)
+./scripts/docker_build_ros.sh --distro melodic   # build only melodic
+./scripts/docker_build_ros.sh --distro noetic    # build only noetic
+./scripts/docker_build_ros.sh --distro eloquent  # build only eloquent
+./scripts/docker_build_ros.sh --distro foxy      # build only foxy
+./scripts/docker_build_ros.sh --distro galactic  # build only galactic
+```
+You can also specify --with-pytorch and --with-slam to build variants with support for PyTorch and GPU-accelerated SLAM nodes (including ORBSLAM2 and RTABMAP). Note that Noetic, Foxy, and Galactic are built from source for Ubuntu 18.04, while Melodic and Eloquent are installed from Debian packages into the containers.
 
 ## Testing the Containers
 
