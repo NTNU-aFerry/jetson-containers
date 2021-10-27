@@ -104,7 +104,7 @@ apt-get update && apt-get install -y python-catkin-tools python3-dev python3-num
 apt-get install vim
 ```
 
-and then follow the setup.bash
+and then follow the setup.bash in (but changing to noetic) https://github.com/NTNU-aFerry/ros_af_pytorch_detector/blob/master/docker/workspace/setup.sh
 ```
 # Source ROS noetic
 source /opt/ros/noetic/setup.bash
@@ -122,7 +122,8 @@ cd src
 git clone -b noetic https://github.com/ros-perception/vision_opencv.git
 cd cv_bridge
 vim CMakeLists.txt
-# change Boost REQUIRED python 37 to python 3 and change: "find_package(OpenCV ${_opencv_version} REQUIRED" to "find_package(OpenCV 4 REQUIRED"
+# change Boost REQUIRED python 37 to python 3
+#and change: "find_package(OpenCV ${_opencv_version} REQUIRED" to "find_package(OpenCV 4 REQUIRED"
 
 cd ~/workspace/catkin_build_ws
 catkin build cv_bridge
