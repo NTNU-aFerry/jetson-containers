@@ -95,3 +95,7 @@ $ ./scripts/docker_test_ros.sh foxy      # test if the build of 'ROS foxy' was s
 ```
 ./scripts/docker_run.sh -c ros:noetic-ros-base-l4t-r32.5.1
 ```
+Then inside workspace/ros_catkin_ws run:
+```
+catkin_make
+```
