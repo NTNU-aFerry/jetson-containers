@@ -122,7 +122,7 @@ cd src
 git clone -b noetic https://github.com/ros-perception/vision_opencv.git
 cd cv_bridge
 vim CMakeLists.txt
-# change Boost REQUIRED python 37 to python 3
+# change Boost REQUIRED python 37 to python 3 and change: "find_package(OpenCV ${_opencv_version} REQUIRED" to "find_package(OpenCV 4 REQUIRED"
 
 cd ~/workspace/catkin_build_ws
 catkin build cv_bridge
