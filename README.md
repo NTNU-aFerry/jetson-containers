@@ -90,6 +90,10 @@ $ ./scripts/docker_test_ros.sh noetic    # test if the build of 'ROS noetic' was
 $ ./scripts/docker_test_ros.sh eloquent  # test if the build of 'ROS eloquent' was successful
 $ ./scripts/docker_test_ros.sh foxy      # test if the build of 'ROS foxy' was successful
 ```
+## Before ros noetic container runs
+Clone this repository and clone "https://github.com/NTNU-aFerry/ros_af_pytorch_detector" and "https://github.com/NTNU-aFerry/ros_af_msgs". Go back to the "jetson-container" directory and use the commands "cp /etc/apt/trusted.gpg.d/jetson-ota-public.asc ." and "cp /etc/apt/sources.list.d/nvidia-l4t-apt-source.list ."
+
+
 ## Running the ros noetic container 
 
 ```
