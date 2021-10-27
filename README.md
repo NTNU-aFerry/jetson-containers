@@ -124,7 +124,7 @@ cd cv_bridge
 vim CMakeLists.txt
 # change Boost REQUIRED python 37 to python 3
 
-cd .. 
+cd ~/workspace/catkin_build_ws
 catkin build cv_bridge
 pwd
 
