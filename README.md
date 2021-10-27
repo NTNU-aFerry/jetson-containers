@@ -101,6 +101,7 @@ Then inside workspace/ run:
 apt-get update && apt-get install -y python3-pip python3-yaml
 pip3 install rospkg catkin_pkg
 apt-get update && apt-get install -y python-catkin-tools python3-dev python3-numpy
+apt-get install vim
 ```
 
 and then follow the setup.bash
@@ -119,6 +120,9 @@ catkin config --install
 
 cd src
 git clone -b noetic https://github.com/ros-perception/vision_opencv.git
+cd cv_bridge
+vim CMakeLists.txt
+# change Boost REQUIRED python 37 to python 3
 
 cd .. 
 catkin build cv_bridge
