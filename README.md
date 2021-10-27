@@ -95,7 +95,45 @@ $ ./scripts/docker_test_ros.sh foxy      # test if the build of 'ROS foxy' was s
 ```
 ./scripts/docker_run.sh -c ros:noetic-ros-base-l4t-r32.5.1
 ```
-Then inside workspace/ros_catkin_ws run:
+Then inside workspace/ run:
 ```
-catkin_make
+# Build tools for cv_bridge
+apt-get update && apt-get install -y python3-pip python3-yaml
+pip3 install rospkg catkin_pkg
+apt-get update && apt-get install -y python-catkin-tools python3-dev python3-numpy
+```
+
+and then follow the setup.bash
+```
+# Source ROS noetic
+source /opt/ros/noetic/setup.bash
+
+# Create workspaces that are needed.
+mkdir -p aferry_ws/src
+mkdir -p catkin_build_ws/src
+
+# Build cv_bridge
+cd catkin_build_ws
+catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.7m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.7m.so
+catkin config --install
+
+cd src
+git clone -b noetic https://github.com/ros-perception/vision_opencv.git
+
+cd .. 
+catkin build cv_bridge
+pwd
+
+source install/setup.bash --extend
+cd ../aferry_ws
+python3 -m venv --system-site-packages ./venv
+
+source venv/bin/activate
+pip install -U pip
+cd src
+git clone https://github.com/Skarsh/yaep_lib.git
+cd yaep_lib && pip install -e .
+
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+echo "source /workspace/aferry_ws/venv/bin/activate" >> ~/.bashrc
 ```
