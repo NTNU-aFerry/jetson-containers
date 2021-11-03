@@ -97,16 +97,7 @@ Clone this repository and clone "https://github.com/NTNU-aFerry/ros_af_pytorch_d
 ```
 ./scripts/docker_run.sh -c ros:noetic-ros-base-l4t-r32.5.1
 ```
-Then inside workspace/ run:
-```
-# Build tools for cv_bridge
-apt-get update && apt-get install -y python3-pip python3-yaml
-pip3 install rospkg catkin_pkg
-apt-get update && apt-get install -y python-catkin-tools python3-dev python3-numpy
-apt-get install vim
-```
-
-and then follow the setup.bash in (but changing to noetic) https://github.com/NTNU-aFerry/ros_af_pytorch_detector/blob/master/docker/workspace/setup.sh
+inside the container follow the setup.bash in (but changing to noetic) https://github.com/NTNU-aFerry/ros_af_pytorch_detector/blob/master/docker/workspace/setup.sh:
 ```
 # Source ROS noetic
 source /opt/ros/noetic/setup.bash
